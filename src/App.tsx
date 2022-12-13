@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { item } from './types/item';
-import { List } from './components/List';
-import { CreateList } from './components/CreateList';
+import { List } from './components/List/List';
+import { CreateList } from './components/CreateList/CreateList';
 
 const App = () => {
 
