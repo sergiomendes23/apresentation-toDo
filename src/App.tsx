@@ -6,16 +6,23 @@ import { CreateList } from './components/CreateList';
 
 const App = () => {
 
-  const [list, setList] = useState<item[]>([
-    {id: 1, name: 'Fazer o hub', done: false},
-    {id: 2, name: 'Fazer o projetão', done: false}
-  ])
+  const [list, setList] = useState<item[]>([])
+
+  const handleAddTask = (taskName: string) => {
+    let task = [...list]
+    task.push({
+      id: list.length +1,
+      name: taskName,
+      done: false,
+    })
+    setList(task);
+  };
 
   return (
     <s.Container>
       <s.Area>
         <s.Header>Lista de Tarefas</s.Header>
-        <CreateList />
+        <CreateList onEnter={handleAddTask} />
         {list.map((item, index) => (
           <List key={index} item={item} />
         ))}
